@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "YallaType",
+  "description": "Real-time Arabizi (Latin) to Arabic transliteration while typing.",
+  "version": "1.0.0",
+  "icons": {
+    "16": "colored-logo.png",
+    "32": "colored-logo.png",
+    "48": "colored-logo.png",
+    "128": "colored-logo.png"
+  },
+  "permissions": ["storage", "activeTab", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "src/transliteration/mappings.js",
+        "src/transliteration/engine.js",
+        "src/content/content-script.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_title": "YallaType",
+    "default_icon": {
+      "16": "colored-logo.png",
+      "32": "colored-logo.png"
+    },
+    "default_popup": "src/popup/popup.html"
+  },
+  "commands": {
+    "toggle-transliteration": {
+      "suggested_key": {
+        "default": "Alt+Shift+T"
+      },
+      "description": "Toggle transliteration on or off"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "yallatype@example.com",
+      "strict_min_version": "109.0"
+    }
+  }
+}

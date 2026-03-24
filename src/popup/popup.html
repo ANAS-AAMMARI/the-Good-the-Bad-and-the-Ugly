@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YallaType</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="popup">
+      <h1>YallaType</h1>
+
+      <label class="row">
+        <span>Enable transliteration</span>
+        <input id="globalToggle" type="checkbox" />
+      </label>
+
+      <label class="row">
+        <span>Enable on this site</span>
+        <input id="siteToggle" type="checkbox" />
+      </label>
+
+      <p id="siteLabel" class="site"></p>
+      <p class="hint">Keyboard shortcut: Alt+Shift+T (customizable in extensions shortcuts).</p>
+      <p id="status" class="status" aria-live="polite"></p>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
