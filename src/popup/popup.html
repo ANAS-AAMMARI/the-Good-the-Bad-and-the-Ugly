@@ -7,22 +7,59 @@
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <main class="popup">
-      <h1>YallaType</h1>
+    <main class="popup-shell" role="application" aria-label="YallaType extension popup">
+      <header class="header">
+        <div class="brand">
+          <img src="../../colored-logo.png" alt="YallaType" class="brand-icon" />
+          <div>
+            <h1>YallaType</h1>
+            <p class="subtitle">Arabizi to Arabic assistant</p>
+          </div>
+        </div>
+      </header>
 
-      <label class="row">
-        <span>Enable transliteration</span>
-        <input id="globalToggle" type="checkbox" />
-      </label>
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M11 4a7 7 0 1 0 4.42 12.43l4.57 4.57 1.41-1.41-4.57-4.57A7 7 0 0 0 11 4zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z" />
+        </svg>
+        <input id="searchInput" type="text" placeholder="Search settings" autocomplete="off" />
+      </div>
 
-      <label class="row">
-        <span>Enable on this site</span>
-        <input id="siteToggle" type="checkbox" />
-      </label>
+      <section id="contentArea" class="content" aria-label="Settings list">
+        <article class="card" data-search="enable transliteration global toggle arabizi arabic typing">
+          <div class="card-copy">
+            <h2>Global Transliteration</h2>
+            <p>Enable conversion while typing across supported sites.</p>
+          </div>
+          <label class="switch" aria-label="Enable transliteration globally">
+            <input id="globalToggle" type="checkbox" />
+            <span class="slider"></span>
+          </label>
+        </article>
 
-      <p id="siteLabel" class="site"></p>
-      <p class="hint">Keyboard shortcut: Alt+Shift+T (customizable in extensions shortcuts).</p>
-      <p id="status" class="status" aria-live="polite"></p>
+        <article class="card" data-search="current site website host domain toggle">
+          <div class="card-copy">
+            <h2>Current Site</h2>
+            <p id="siteLabel" class="site-label">Loading site context...</p>
+          </div>
+          <label class="switch" aria-label="Enable transliteration on this site">
+            <input id="siteToggle" type="checkbox" />
+            <span class="slider"></span>
+          </label>
+        </article>
+
+        <article class="card card-info" data-search="shortcut keyboard hotkey alt shift t">
+          <div class="card-copy">
+            <h2>Keyboard Shortcut</h2>
+            <p>Toggle quickly with Alt+Shift+T. Customize from browser shortcut settings.</p>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <p id="status" class="status" aria-live="polite"></p>
+        <button id="saveBtn" class="primary-btn" type="button">Apply Changes</button>
+      </footer>
     </main>
 
     <script src="popup.js"></script>

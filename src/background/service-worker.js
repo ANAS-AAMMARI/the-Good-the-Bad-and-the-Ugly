@@ -54,7 +54,14 @@ function normalizeToken(token) {
 }
 
 api.runtime.onInstalled.addListener(async () => {
+  const existing = await api.storage.sync.get(["enabled", "disabledSites", "skipKnownEditors", "customDictionary"]);
   const current = await getSettings();
+
+  // First-time bootstrap: ensure transliteration starts enabled by default.
+  if (typeof existing.enabled !== "boolean") {
+    current.enabled = true;
+  }
+
   await api.storage.sync.set(current);
 });
 

@@ -48,20 +48,39 @@
       .yallatype-suggestion-box {
         position: fixed;
         z-index: 2147483647;
-        min-width: 220px;
-        max-width: min(360px, calc(100vw - 16px));
-        max-height: min(260px, calc(100vh - 24px));
+        min-width: 240px;
+        max-width: min(380px, calc(100vw - 16px));
+        max-height: min(320px, calc(100vh - 20px));
         overflow-y: auto;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.95));
-        border: 1px solid rgba(148, 163, 184, 0.45);
-        border-radius: 14px;
-        box-shadow: 0 18px 42px rgba(15, 23, 42, 0.24);
-        backdrop-filter: blur(8px);
-        padding: 8px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        background: linear-gradient(180deg, #1a1d24, #171b22);
+        border: 1px solid #2a2f3a;
+        border-radius: 16px;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(10px);
+        padding: 10px;
         font-family: 'Noto Naskh Arabic', 'Segoe UI', Tahoma, sans-serif;
-        font-size: 28px;
-        line-height: 1.5;
+        font-size: 16px;
+        line-height: 1.4;
         direction: rtl;
+        color: #ffffff;
+        display: none;
+      }
+
+      .yallatype-suggestion-box::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        display: none;
+      }
+
+      .yallatype-suggestion-box::-webkit-scrollbar-thumb {
+        display: none;
+      }
+
+      .yallatype-suggestion-box::-webkit-scrollbar-button {
+        width: 0;
+        height: 0;
         display: none;
       }
 
@@ -69,111 +88,144 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 8px;
-        padding: 2px 4px 8px;
-        border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-        margin-bottom: 6px;
+        gap: 10px;
+        padding: 2px 2px 10px;
+        border-bottom: 1px solid rgba(79, 89, 107, 0.5);
+        margin-bottom: 8px;
       }
 
       .yallatype-token-chip {
         direction: ltr;
         font-family: 'Segoe UI', Tahoma, sans-serif;
         font-size: 11px;
-        color: #334155;
-        background: #f1f5f9;
-        border: 1px solid #e2e8f0;
+        color: #d6dbe6;
+        background: #232733;
+        border: 1px solid #32394a;
         border-radius: 999px;
-        padding: 2px 8px;
+        padding: 3px 10px;
       }
 
       .yallatype-add-btn {
         direction: ltr;
-        font-family: 'Segoe UI', Tahoma, sans-serif;
+        font-family: Inter, 'Segoe UI', Tahoma, sans-serif;
         font-size: 11px;
-        border: 1px solid #bfdbfe;
-        background: #eff6ff;
-        color: #1d4ed8;
+        border: 1px solid rgba(79, 140, 255, 0.7);
+        background: rgba(79, 140, 255, 0.16);
+        color: #cfe0ff;
         border-radius: 999px;
-        padding: 3px 9px;
+        padding: 4px 10px;
         cursor: pointer;
+        transition: background-color 140ms ease, transform 140ms ease;
+      }
+
+      .yallatype-add-btn:hover {
+        background: rgba(79, 140, 255, 0.26);
+        transform: translateY(-1px);
       }
 
       .yallatype-suggestion-hint {
-        font-family: 'Segoe UI', Tahoma, sans-serif;
+        font-family: Inter, 'Segoe UI', Tahoma, sans-serif;
         font-size: 11px;
-        color: #64748b;
+        color: #8f98a8;
         direction: ltr;
         text-align: left;
-        padding: 0 4px 6px;
-        border-bottom: 1px solid rgba(148, 163, 184, 0.18);
-        margin-bottom: 6px;
+        padding: 0 2px 8px;
+        border-bottom: 1px solid rgba(79, 89, 107, 0.45);
+        margin-bottom: 8px;
       }
 
       .yallatype-suggestion-item {
-        padding: 6px 10px;
+        padding: 8px 12px;
         cursor: pointer;
-        border-radius: 10px;
+        border-radius: 12px;
         user-select: none;
-        color: #0f172a;
-        transition: background-color 120ms ease;
+        color: #f8fafc;
+        font-size: 22px;
+        line-height: 1.35;
+        border: 1px solid transparent;
+        transition: background-color 140ms ease, border-color 140ms ease, transform 140ms ease;
       }
 
       .yallatype-suggestion-item[data-active='true'] {
-        background: linear-gradient(90deg, #eff6ff, #dbeafe);
+        background: linear-gradient(180deg, rgba(79, 140, 255, 0.22), rgba(79, 140, 255, 0.14));
+        border-color: rgba(79, 140, 255, 0.55);
+        box-shadow: 0 4px 16px rgba(79, 140, 255, 0.22);
       }
 
       .yallatype-suggestion-item:hover {
-        background: #f1f5f9;
+        background: rgba(35, 41, 54, 0.95);
+        border-color: #384154;
+        transform: translateY(-1px);
       }
 
       .yallatype-add-form {
         direction: rtl;
         display: grid;
-        gap: 6px;
-        margin: 8px 2px 2px;
-        padding: 8px;
-        border: 1px dashed #cbd5e1;
-        border-radius: 10px;
-        background: #ffffff;
+        gap: 8px;
+        margin: 10px 2px 2px;
+        padding: 10px;
+        border: 1px dashed #3a4354;
+        border-radius: 12px;
+        background: rgba(19, 22, 29, 0.85);
       }
 
       .yallatype-add-form input {
         width: 100%;
         box-sizing: border-box;
-        border: 1px solid #cbd5e1;
-        border-radius: 8px;
-        padding: 7px 9px;
-        font-size: 22px;
+        border: 1px solid #32384a;
+        border-radius: 10px;
+        padding: 8px 10px;
+        font-size: 20px;
         font-family: 'Noto Naskh Arabic', 'Segoe UI', Tahoma, sans-serif;
         direction: rtl;
+        color: #ffffff;
+        background: #10141b;
+      }
+
+      .yallatype-add-form input:focus {
+        outline: none;
+        border-color: rgba(79, 140, 255, 0.75);
+        box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.2);
       }
 
       .yallatype-add-actions {
         display: flex;
-        gap: 6px;
+        gap: 8px;
         justify-content: flex-start;
       }
 
       .yallatype-action {
-        border: 1px solid #cbd5e1;
-        background: #f8fafc;
-        border-radius: 8px;
-        padding: 4px 10px;
+        border: 1px solid #3a4354;
+        background: #232733;
+        color: #e2e8f0;
+        border-radius: 10px;
+        padding: 5px 12px;
         font-size: 11px;
-        font-family: 'Segoe UI', Tahoma, sans-serif;
+        font-family: Inter, 'Segoe UI', Tahoma, sans-serif;
         cursor: pointer;
+        transition: background-color 140ms ease, transform 140ms ease;
+      }
+
+      .yallatype-action:hover {
+        background: #2b3140;
+        transform: translateY(-1px);
       }
 
       .yallatype-action[data-primary='true'] {
-        border-color: #1d4ed8;
-        background: #1d4ed8;
+        border-color: #4f8cff;
+        background: #4f8cff;
         color: #ffffff;
       }
 
+      .yallatype-action[data-primary='true']:hover {
+        background: #6a9dff;
+        border-color: #6a9dff;
+      }
+
       .yallatype-info {
-        font-family: 'Segoe UI', Tahoma, sans-serif;
+        font-family: Inter, 'Segoe UI', Tahoma, sans-serif;
         font-size: 11px;
-        color: #065f46;
+        color: #7cc5ff;
         direction: ltr;
       }
     `;
@@ -234,20 +286,46 @@
     return Boolean(root.closest(SKIP_EDITORS_SELECTOR));
   }
 
+  function resolveTargetElement(target) {
+    if (target instanceof Element) {
+      return target;
+    }
+
+    if (target instanceof Node && target.parentElement) {
+      return target.parentElement;
+    }
+
+    if (activeTarget instanceof Element) {
+      return activeTarget;
+    }
+
+    if (document.activeElement instanceof Element) {
+      return document.activeElement;
+    }
+
+    const selection = window.getSelection();
+    if (selection && selection.anchorNode && selection.anchorNode.parentElement) {
+      return selection.anchorNode.parentElement;
+    }
+
+    return null;
+  }
+
   function getEditableRoot(el) {
-    if (!el || !(el instanceof Element)) {
+    const source = resolveTargetElement(el);
+    if (!source) {
       return null;
     }
 
-    if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement) {
-      return el;
+    if (source instanceof HTMLInputElement || source instanceof HTMLTextAreaElement) {
+      return source;
     }
 
-    if (el instanceof HTMLElement && el.isContentEditable) {
-      return el;
+    if (source instanceof HTMLElement && source.isContentEditable) {
+      return source;
     }
 
-    const editableAncestor = el.closest("[contenteditable='true'], [contenteditable='plaintext-only']");
+    const editableAncestor = source.closest("[contenteditable='true'], [contenteditable='plaintext-only']");
     if (editableAncestor instanceof HTMLElement) {
       return editableAncestor;
     }
@@ -572,22 +650,37 @@
   function getCaretContextInContentEditable(root) {
     const selection = window.getSelection();
     if (!selection || selection.rangeCount === 0) {
-      return null;
+      const rawText = (root.innerText || root.textContent || "").replace(/\u200b/g, "");
+      return {
+        index: rawText.length,
+        text: rawText
+      };
     }
 
     const range = selection.getRangeAt(0);
     if (!range.collapsed) {
-      return null;
+      const preRange = document.createRange();
+      preRange.selectNodeContents(root);
+      preRange.setEnd(range.endContainer, range.endOffset);
+      const text = preRange.toString().replace(/\u200b/g, "");
+      return {
+        index: text.length,
+        text
+      };
     }
 
     if (!root.contains(range.endContainer)) {
-      return null;
+      const rawText = (root.innerText || root.textContent || "").replace(/\u200b/g, "");
+      return {
+        index: rawText.length,
+        text: rawText
+      };
     }
 
     const preRange = document.createRange();
     preRange.selectNodeContents(root);
     preRange.setEnd(range.endContainer, range.endOffset);
-    const text = preRange.toString();
+    const text = preRange.toString().replace(/\u200b/g, "");
 
     return {
       index: text.length,
@@ -609,6 +702,21 @@
     }
 
     return null;
+  }
+
+  function scheduleSuggestionRefresh(target) {
+    const resolved = resolveTargetElement(target);
+    if (!resolved) {
+      return;
+    }
+
+    setTimeout(() => {
+      updateSuggestionsFromTarget(resolved);
+    }, 0);
+
+    setTimeout(() => {
+      updateSuggestionsFromTarget(resolved);
+    }, 48);
   }
 
   function replaceInContentEditable(root, start, end, replacement) {
@@ -810,7 +918,7 @@
     }
 
     if (event.inputType && event.inputType.startsWith("delete")) {
-      updateSuggestionsFromTarget(event.target);
+      scheduleSuggestionRefresh(event.target);
       return;
     }
 
@@ -825,7 +933,7 @@
       return;
     }
 
-    updateSuggestionsFromTarget(event.target);
+    scheduleSuggestionRefresh(event.target);
   }
 
   function onKeyup(event) {
@@ -837,7 +945,7 @@
       return;
     }
 
-    updateSuggestionsFromTarget(event.target instanceof Element ? event.target : activeTarget);
+    scheduleSuggestionRefresh(event.target instanceof Element ? event.target : activeTarget);
   }
 
   function onCompositionStart(event) {
@@ -847,7 +955,7 @@
 
   function onCompositionEnd(event) {
     isComposing = false;
-    updateSuggestionsFromTarget(event.target);
+    scheduleSuggestionRefresh(event.target);
   }
 
   function onBlur(event) {
@@ -907,7 +1015,7 @@
 
   function onFocusIn(event) {
     activeTarget = event.target instanceof Element ? event.target : activeTarget;
-    updateSuggestionsFromTarget(activeTarget);
+    scheduleSuggestionRefresh(activeTarget);
   }
 
   function onPointerDown(event) {
